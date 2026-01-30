@@ -85,6 +85,15 @@ git add "${TRACKED_FILES[@]}" 2>/dev/null
 # Create the commit
 if git commit -m "$commit_message" >/dev/null 2>&1; then
     echo "✅ Changes committed successfully!"
+
+    # Push to remote
+    echo "Pushing to remote..."
+    if git push 2>&1; then
+        echo "✅ Changes pushed successfully!"
+    else
+        echo "⚠️  Push failed. You may need to push manually later."
+        echo "    Run: cd ~/.claude && git push"
+    fi
 else
     echo "❌ Commit failed. Check git status for details."
     exit 1
