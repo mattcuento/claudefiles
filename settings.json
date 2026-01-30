@@ -251,13 +251,15 @@
       "Bash(ninja:*)",
       "Bash(tee:*)",
       "Bash(fzf:*)",
-      "Bash(wc:*)",
       "Bash(echo:*)",
       "Bash(file:*)",
       "Bash(env:*)",
-      "Bash(sort:*)",
-      "Bash(mkdir:*)"
-    ]
+      "Bash(mkdir:*)",
+      "Bash(test:*)",
+      "Bash(ln:*)",
+      "Bash(git add:*)",
+    ],
+    "defaultMode": "plan"
   },
   "enabledPlugins": {
     "dev-suite": true,
