@@ -262,7 +262,6 @@
     "defaultMode": "plan"
   },
   "enabledPlugins": {
-    "dev-suite": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "jdtls-lsp@claude-plugins-official": true,
