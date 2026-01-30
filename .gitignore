@@ -5,6 +5,8 @@ debug/
 session-env/
 shell-snapshots/
 todos/
+plans/
+tasks/
 
 # Machine-specific settings
 settings.local.json
