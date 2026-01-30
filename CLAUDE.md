@@ -208,6 +208,67 @@ go test ./...
 - Formatting: `go fmt` (auto-approved)
 - Linting: `golangci-lint` if available
 
+**AWS Projects**
+- Command-line operations: `aws` CLI for all AWS service interactions
+  - EC2: `aws ec2 describe-instances`, `aws ec2 start-instances`
+  - S3: `aws s3 ls`, `aws s3 cp`, `aws s3 sync`
+  - Lambda: `aws lambda invoke`, `aws lambda update-function-code`
+  - CloudFormation: `aws cloudformation deploy`, `aws cloudformation describe-stacks`
+  - IAM: `aws iam list-users`, `aws iam create-role`
+- Infrastructure as Code: Detect from project:
+  - `tofu` if `.terraform.lock.hcl` exists or `terraform` blocks use OpenTofu
+  - `terraform` as fallback for legacy projects
+  - Prefer OpenTofu for new infrastructure projects
+- Configuration:
+  - Always use named profiles via `--profile` flag or `AWS_PROFILE` env var
+  - Never hardcode credentials - use AWS credential chain (env vars, profiles, IAM roles)
+  - Verify current region with `aws configure get region --profile <profile>`
+- Security practices:
+  - Always use least-privilege IAM policies
+  - Never log AWS credentials or sensitive API responses
+  - Use AWS Secrets Manager or Parameter Store for secrets (not environment variables)
+  - Verify MFA requirements before operations: `aws sts get-caller-identity`
+- State management (IaC):
+  - OpenTofu/Terraform: Use remote state (S3 backend with DynamoDB locking)
+  - Always run `tofu plan` before `tofu apply`
+  - Use workspaces for environment separation
+- CloudFormation best practices:
+  - Validate templates before deploy: `aws cloudformation validate-template`
+  - Use change sets for updates: `aws cloudformation create-change-set`
+  - Tag all resources for cost tracking and organization
+
+**Obsidian Projects**
+- Knowledge management: `obsidian-cli` for all vault operations
+  - Create notes: `obsidian-cli create <note-name> --content "..." --vault <vault>`
+  - Search notes: `obsidian-cli search` (fuzzy search by title)
+  - Open notes: `obsidian-cli open <note-name>`
+  - Daily notes: `obsidian-cli daily`
+  - Search content: `obsidian-cli search-content <term>`
+  - Print contents: `obsidian-cli print <note-name>`
+- Configuration:
+  - Set default vault: `obsidian-cli set-default <vault-name>`
+  - Check default: `obsidian-cli print-default`
+  - Always specify `--vault` flag if working across multiple vaults
+- Organization patterns:
+  - Global vault structure: Single vault for all projects (e.g., `~/Documents/Obsidian/`)
+  - Per-project folders: `ProjectName/` within vault
+  - Content types: `specs/`, `plans/`, `architecture/`, `research/`, `notes/`
+  - Note naming: Date prefix for temporal notes (`2026-01-30-feature-plan`), topic-based for reference (`authentication-architecture`)
+- When to use Obsidian vs regular markdown:
+  - **Obsidian**: Project specs, implementation plans, ADRs, research notes, complex explorations
+  - **Regular markdown**: Code-adjacent docs (README.md, inline docs, API references in repo)
+- Proactive creation triggers:
+  - Implementation plans (especially from plan mode)
+  - Architecture decision records (ADRs)
+  - Research findings from investigations
+  - Complex feature specifications
+  - Post-mortem analysis of bugs or incidents
+- Installation check:
+  - Verify: `which obsidian-cli`
+  - Install via Homebrew: `brew install yakitrak/tap/obsidian-cli`
+  - If missing: Explain benefits and prompt user to install
+  - Set up default vault after installation
+
 ### Cross-Language Tool Preferences
 
 **Version Control & GitHub**
@@ -249,6 +310,7 @@ When starting work on a project:
 - **Prefer wrappers**: Use `./mvnw` over `mvn`, `./gradlew` over `gradle`
 - **Check before assuming**: Read lockfiles/config to detect tools, don't guess
 - **Respect project scripts**: If `package.json` has a `test` script, use it
+- **Verify documented tools**: Before using any documented tool, check if it's installed (`which <tool>`). If missing, explain the tool's purpose and provide installation instructions (e.g., Homebrew, npm, cargo install). Prompt user to install before proceeding.
 
 ## Code Formatting
 
