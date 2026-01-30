@@ -1,0 +1,35 @@
+# Runtime and session data
+history.jsonl
+file-history/
+debug/
+session-env/
+shell-snapshots/
+todos/
+
+# Machine-specific settings
+settings.local.json
+
+# Project-specific data (contains local file paths)
+projects/
+
+# Cache and ephemeral data
+cache/
+statsig/
+
+# Plugin cache and runtime data
+plugins/cache/
+plugins/install-counts-cache.json
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+plugins/marketplaces/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
