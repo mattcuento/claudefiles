@@ -257,7 +257,7 @@
       "Bash(mkdir:*)",
       "Bash(test:*)",
       "Bash(ln:*)",
-      "Bash(git add:*)",
+      "Bash(git add:*)"
     ],
     "defaultMode": "plan"
   },
