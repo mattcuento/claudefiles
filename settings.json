@@ -270,6 +270,7 @@
     "claude-code-setup@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
+  "effortLevel": "medium",
   "voiceEnabled": true,
-  "effortLevel": "high"
+  "model": "opus"
 }
