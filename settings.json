@@ -262,6 +262,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "opus",
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -270,7 +271,6 @@
     "claude-code-setup@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
-  "effortLevel": "medium",
-  "voiceEnabled": true,
-  "model": "opus"
+  "effortLevel": "high",
+  "voiceEnabled": true
 }
