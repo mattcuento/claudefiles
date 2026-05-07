@@ -272,5 +272,8 @@
     "pyright-lsp@claude-plugins-official": true
   },
   "effortLevel": "medium",
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "theme": "dark-ansi",
+  "verbose": true,
+  "preferredNotifChannel": "iterm2_with_bell"
 }
